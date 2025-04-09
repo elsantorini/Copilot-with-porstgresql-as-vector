@@ -593,7 +593,7 @@ def main():
 
         # Onglets
          # Onglets
-        tab1, tab2, tab3, tab4 , tab5 = st.tabs(["Configuration", "Loading file", "Chat with your data","list of file load  ","Load data from argus accelerator"])
+        tab1, tab2, tab3, tab4 , tab5 = st.tabs(["Configuration", "Upload file", "Chat with your data","Loaded Files","Import from ARGUS Accelerator"])
 
 
         with tab1:
@@ -755,31 +755,31 @@ def main():
                 
           
             
-            st.write("made by emmanuel deletang in case of need contact him at edeletang@microsoft.com")
+            st.write("Developed by Emmanuel Deletang. For support or inquiries, contact: edeletang@microsoft.com")
             
         with tab5:
-            st.write("load the data and connect the data from argus accelerator")
-            st.write("result Getting data from ARGUS ACCELERATOR : https://github.com/Azure-Samples/ARGUS")
-            argusdb = st.text_input("your Argus cosmosdb database", "doc-extracts")
-            argusurl = st.text_input("your Argus csomsodb URI", "http... ")
-            arguskey = st.text_input("your Argus csomsodb key", "xxxx... ")
-            arguscollection = st.text_input("your Argus cosmosdb collection source", "documents")
+            st.write("load the data and connect the data from ARGUS Accelerator")
+            st.write("result Getting data from ARGUS Accelerator : https://github.com/Azure-Samples/ARGUS")
+            argusdb = st.text_input("your ARGUS Cosmosdb database", "doc-extracts")
+            argusurl = st.text_input("your ARGUS CosmosDB URI", "http... ")
+            arguskey = st.text_input("your ARGUS Cosmosdb key", "xxxx... ")
+            arguscollection = st.text_input("your ARGUS Cosmosdb collection source", "documents")
             
             if st.button("load the data "):
                 if arguscollection == None or arguskey == None or argusurl == None : 
-                    st.write ( "parameters non correct , please entry your key , url and colleciton")
+                    st.write ( "Invalid parameters. Please enter your API key, URL, and collection name.")
                 else:
                     total = loaddataargus( argusdb,arguscollection , argusurl,arguskey, dbname,user,password,host,port) 
-                    st.write("Total count of data loaded from argus source : ", total)
+                    st.write("Total count of data loaded from ARGUS source : ", total)
                    
                 
         
     else:
         # Formulaire de connexion
       
-        username_input = st.text_input("Nom d'utilisateur")
+        username_input = st.text_input("Username")
         email_input = st.text_input("Email")
-        country_input = st.text_input("country")
+        country_input = st.text_input("Country")
        
 
         if st.button("Connexion"):
@@ -800,7 +800,7 @@ def main():
                 
                 st.rerun()
             else:
-                st.error("Nom d'utilisateur ou mot de passe incorrect")
+                st.error("Username or Password is incorrect")
 
 
 if __name__ == "__main__":
